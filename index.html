@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+  <br>UAT舊平台 歐洲學校post轉導到新平台<br>
+  https://testpt.ctbcbank.com/ipaymentGW/tes/payTes.do<br>
+  https://testpt.ctbcbank.com/sweb/processTesPost<br>
+  <!-- <form id="sForm" name="sForm" method="post" action="https://testpt.ctbcbank.com/ipaymentGW/tes/payTes.do"> -->
+  <form id="sForm" name="sForm" method="post" action="https://testpt.ctbcbank.com/sweb/processTesPost">
+    <table width="50%">
+      <tbody>
+        <tr>
+          <td>dfkey</td>
+          <td><input type="text" id="dfkey" name="dfkey" value="Chou123" class="form-control"></td>
+        </tr>
+        <tr>
+          <td>stkeys</td>
+          <td><input type="text" id="stkeys" name="stkeys" value="Sylvia1002,Anita1002" class="form-control"></td>
+        </tr>
+        <tr>
+          <td>amounts</td>
+          <td><input type="text" id="amounts" name="amounts" value="200,100" class="form-control"></td>
+        </tr>
+        <tr>
+          <td>studentnames</td>
+          <td><input type="text" id="studentnames" name="studentnames" value="Sylvîa Chöu1001,Anita Chiü1001" class="form-control"></td>
+        </tr>
+        <tr>
+          <td>trx</td>
+          <td><input type="text" id="trx" name="trx" value="12345678901234567890123456789012" class="form-control"></td>
+        </tr>
+        <tr>
+          <td>academicyear</td>
+          <td><input type="text" id="academicyear" name="academicyear" value="2022" class="form-control"></td>
+        </tr>
+        <tr>
+          <td>semester</td>
+          <td><input type="text" id="semester" name="semester" value="1" class="form-control"></td>
+        </tr>
+        <tr>
+          <td>encrypt</td>
+          <td><input type="text" id="encrypt" name="encrypt" value="0" class="form-control"></td>
+        </tr>
+        <tr>
+          <td>sc (MAC)</td>
+          <!-- <td><input type="text" id="sc" name="sc" value="7C7A1AAC" class="form-control"></td> -->
+		  <td><input type="text" id="sc" name="sc" value="C4C18F35" class="form-control"></td> 
+        </tr>
+        <tr>
+          <td>datetime <span style="color:red">(須設定目前時間30分鐘內)</span></td>
+          <td><input type="text" id="datetime" name="datetime" value="20231227202010" class="form-control"></td>
+        </tr>
+      </tbody>
+    </table>
+    <button onclick="doSubmit();" class="btn btn-success">送出</button>
+  </form>
+  <br><br><br>
+
+</body>
+
+</html>
