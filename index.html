@@ -6,9 +6,10 @@
 </head>
 
 <body>
-  <br>UAT舊平台 歐洲學校post轉導到新平台<br>
-  https://testpt.ctbcbank.com/ipaymentGW/tes/payTes.do<br>
-  https://testpt.ctbcbank.com/sweb/processTesPost<br>
+  <br>SIT舊平台 歐洲學校post轉導到新平台<br>
+  <input type="checkbox" id="redirectToOrigin" name="origin" value="1"><span style="background-color:bisque">打舊的環境</span><br>
+  UAT測址: https://testpt.ctbcbank.com/ipaymentGW/tes/payTes.do<br>
+  SIT測址: https://testpt.ctbcbank.com/sweb/processTesPost<br>
   <!-- <form id="sForm" name="sForm" method="post" action="https://testpt.ctbcbank.com/ipaymentGW/tes/payTes.do"> -->
   <form id="sForm" name="sForm" method="post" action="https://testpt.ctbcbank.com/sweb/processTesPost">
     <table width="50%">
@@ -27,7 +28,8 @@
         </tr>
         <tr>
           <td>studentnames</td>
-          <td><input type="text" id="studentnames" name="studentnames" value="Sylvîa Chöu1001,Anita Chiü1001" class="form-control"></td>
+          <td><input type="text" id="studentnames" name="studentnames" value="Sylvîa Chöu1001,Anita Chiü1001"
+              class="form-control"></td>
         </tr>
         <tr>
           <td>trx</td>
@@ -46,20 +48,34 @@
           <td><input type="text" id="encrypt" name="encrypt" value="0" class="form-control"></td>
         </tr>
         <tr>
-          <td>sc (MAC)</td>
+          <td width="200px">sc <span
+              style="color:darkblue; font-size:.8em">(MAC。需先打一次錯誤後，到ipayment_color.log搜尋"mac驗證失敗"查)</span></td>
           <!-- <td><input type="text" id="sc" name="sc" value="7C7A1AAC" class="form-control"></td> -->
-		  <td><input type="text" id="sc" name="sc" value="C4C18F35" class="form-control"></td> 
+          <td><input type="text" id="sc" name="sc" value="6BBCF36B" class="form-control"></td>
         </tr>
         <tr>
-          <td>datetime <span style="color:red">(須設定目前時間30分鐘內)</span></td>
-          <td><input type="text" id="datetime" name="datetime" value="20231227202010" class="form-control"></td>
+          <td>datetime <span style="color:red; font-size:.8em">(須設定目前時間30分鐘內)</span></td>
+          <td><input type="text" id="datetime" name="datetime" value="20231229151099" class="form-control"></td>
         </tr>
       </tbody>
     </table>
-    <button onclick="doSubmit();" class="btn btn-success">送出</button>
+    <button class="btn btn-success">送出</button>
   </form>
   <br><br><br>
 
+  <script>
+    document.getElementById("sForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      if (document.getElementById("redirectToOrigin").checked) {
+        console.log("redirectToOrigin");
+        document.getElementById("sForm").action = "https://testpt.ctbcbank.com/sweb/processTesPost?redirectToOrigin=1";
+      }
+
+      document.getElementById("sForm").submit();
+    });
+
+  </script>
 </body>
 
 </html>
